@@ -11,7 +11,7 @@
             </el-menu-item>
             <el-menu-item index="/cardslist">
               <i class="el-icon-goods"></i>
-              <span slot="title">购物车商品</span>
+              <span slot="title">订单管理</span>
             </el-menu-item>
           </el-menu>
         </el-aside>
@@ -36,7 +36,7 @@ export default {
 </script>
 <style>
 .home {
-  height: 1000px;
+  /* height: 1000px; */
   /* background-color:red; */
 }
 .header {
@@ -45,7 +45,7 @@ export default {
 }
 .side {
   background-color: #a4caf6;
-  height: 400px;
+  /* height: 400px; */
 }
 .main {
   /* background-color: #3080db; */
