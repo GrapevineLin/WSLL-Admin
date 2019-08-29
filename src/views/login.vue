@@ -69,6 +69,7 @@ export default {
           if (response.data.code == 200) {
             self.$message.success(response.data.message, 3);
             window.localStorage["token"] = JSON.stringify(response.data.token);
+            window.localStorage["username"] = JSON.stringify(self.username);
             // localStorage.setItem(
             //   'token',
             //   JSON.stringify(response.data.token)
@@ -88,7 +89,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #axiosNoPara {
   margin: 30px;
 }
