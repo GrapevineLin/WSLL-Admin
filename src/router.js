@@ -38,6 +38,7 @@ const routes = [{
   }
 ]
 const router = new Router({
+  base: '/wsll-admin',
   mode: 'history', //去掉url中的#
   routes: routes
 });

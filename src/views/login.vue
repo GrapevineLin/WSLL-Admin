@@ -58,7 +58,7 @@ export default {
       }
       this.$http({
         method: "post",
-        url: "/login",
+        url: "/loginAdmin",
         params: {
           username: this.username,
           password: this.password

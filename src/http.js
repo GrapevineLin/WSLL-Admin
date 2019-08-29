@@ -3,8 +3,8 @@ import router from './router';
 
 // axios 配置
 axios.defaults.timeout = 8000;
-axios.defaults.baseURL = 'http://localhost:8887';
-// axios.defaults.baseURL = 'http://lghlh.top/WSLL';
+// axios.defaults.baseURL = 'http://localhost:8887';
+axios.defaults.baseURL = 'http://lghlh.top/WSLL';
 
 // http request 拦截器
 axios.interceptors.request.use(
