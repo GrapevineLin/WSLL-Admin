@@ -68,13 +68,13 @@ export default {
           console.log("Login:", response.data);
           if (response.data.code == 200) {
             self.$message.success(response.data.message, 3);
-            // window.localStorage["token"] = JSON.stringify(response.data.token);
+            window.localStorage["token"] = JSON.stringify(response.data.token);
             // localStorage.setItem(
             //   'token',
             //   JSON.stringify(response.data.token)
             // );
             // self.$axios.defaults.headers.common['token'] = response.data.token;
-            self.$router.push("/");
+            self.$router.push("/main");
           } else {
             self.$message.error(response.data.message, 3);
           }

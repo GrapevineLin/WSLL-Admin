@@ -100,7 +100,7 @@ export default {
       let formData = JSON.stringify(this.form);
       this.$http({
         method: "POST",
-        url: "/addGood",
+        url: "/admin/addGood",
         params: {
           goods_name: form.goods_name,
           goods_price: form.goods_price
@@ -119,7 +119,7 @@ export default {
       this.dialogVisible = false;
       this.$http({
         method: "get",
-        url: "/deleteGoodsById",
+        url: "/admin/deleteGoodsById",
         params: { id: this.deleteItemId }
       }).then(
         response => {
