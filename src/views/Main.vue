@@ -1,10 +1,19 @@
 <template>
   <div class="home">
     <el-container>
-      <el-header class="header">WSLL后台管理系统</el-header>
+      <el-header class="header">
+        <user></user>
+      </el-header>
       <el-container>
         <el-aside width="”200px”" class="side">
-          <el-menu router :default-active="$route.path" class="el-menu-vertical-demo">
+          <el-menu
+            router
+            :default-active="this.$router.path"
+            class="el-menu-vertical-demo"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
+          >
             <el-menu-item index="/goodslist">
               <i class="el-icon-goods"></i>
               <span slot="title">商品管理</span>
@@ -25,14 +34,14 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import user from "../components/User";
 
 export default {
   name: "home",
-  components: {}
+  components: { user }
 };
 </script>
-<style>
+<style scoped>
 .home {
   /* height: 1000px; */
   /* background-color:red; */
