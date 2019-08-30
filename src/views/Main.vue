@@ -8,7 +8,7 @@
         <el-aside width="”200px”" class="side">
           <el-menu
             router
-            :default-active="this.$router.path"
+            :default-active="goodslist"
             class="el-menu-vertical-demo"
             background-color="#545c64"
             text-color="#fff"
@@ -37,9 +37,16 @@
 import user from "../components/User";
 
 export default {
+  data(){
+    return{
+      goodslist: '/goodslist'
+    }
+  },
   name: "home",
-  components: { user }
-};
+  components: { user },
+  methods: {
+  },
+}
 </script>
 <style scoped>
 .home {
@@ -57,5 +64,6 @@ export default {
 }
 .main {
   /* background-color: #3080db; */
+  height: 734px;
 }
 </style>

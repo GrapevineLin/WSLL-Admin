@@ -75,7 +75,7 @@ export default {
             //   JSON.stringify(response.data.token)
             // );
             // self.$axios.defaults.headers.common['token'] = response.data.token;
-            self.$router.push("/main");
+            self.$router.push("/goodslist");
           } else {
             self.$message.error(response.data.message, 3);
           }
