@@ -58,7 +58,7 @@ export default {
       }
       this.$http({
         method: "post",
-        url: "/login",
+        url: "/loginAdmin",
         params: {
           username: this.username,
           password: this.password
@@ -69,12 +69,13 @@ export default {
           if (response.data.code == 200) {
             self.$message.success(response.data.message, 3);
             window.localStorage["token"] = JSON.stringify(response.data.token);
+            window.localStorage["username"] = JSON.stringify(self.username);
             // localStorage.setItem(
             //   'token',
             //   JSON.stringify(response.data.token)
             // );
             // self.$axios.defaults.headers.common['token'] = response.data.token;
-            self.$router.push("/main");
+            self.$router.push("/goodslist");
           } else {
             self.$message.error(response.data.message, 3);
           }
@@ -88,7 +89,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #axiosNoPara {
   margin: 30px;
 }

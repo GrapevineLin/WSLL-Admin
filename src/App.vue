@@ -15,12 +15,10 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
   }
 };
 </script>
@@ -34,7 +32,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
+*{
+  margin: 0;
+  padding: 0;
+}
 #header {
   background-color: red;
+}
+body .el-table th.gutter{
+    display: table-cell!important;
 }
 </style>

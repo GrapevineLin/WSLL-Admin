@@ -12,7 +12,7 @@
             <el-input v-model="form.goods_price" autocomplete="off"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-upload drag action="https://jsonplaceholder.typicode.com/posts/">
+            <el-upload drag action="string" :http-request="UploadImg" :limit="1">
               <i class="el-icon-upload"></i>
               <div class="el-upload__text">
                 将文件拖到此处，或
@@ -61,6 +61,7 @@ export default {
       dialogVisible: false,
       deleteItemId: -1,
       deleteItemIndex: -1,
+      addItemPicPath: "",
       form: {
         goods_name: "",
         goods_price: ""
@@ -103,11 +104,13 @@ export default {
         url: "/admin/addGood",
         params: {
           goods_name: form.goods_name,
-          goods_price: form.goods_price
+          goods_price: form.goods_price,
+          goods_picture_path: this.addItemPicPath
         }
       }).then(
         response => {
           this.getGoods();
+          this.addItemPicPath = "";
           console.log("response", response);
         },
         err => {
@@ -137,13 +140,30 @@ export default {
           done();
         })
         .catch(_ => {});
+    },
+    UploadImg(content) {
+      console.log("content", content);
+      var self = this;
+      var file = new FormData();
+      file.append("file", content.file);
+      return self
+        .$http({
+          method: "POST",
+          url: "/admin/upload",
+          data: file
+        })
+        .then(res => {
+          self.addItemPicPath = res.data.img;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
 </script>
 
-<style>
-
+<style scoped>
 .items {
   /* display:inline-block; */
   float: left;

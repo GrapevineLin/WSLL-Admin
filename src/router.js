@@ -30,14 +30,7 @@ const routes = [{
       component: () => import('./components/CardList.vue')
     }]
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
-  },
+
   {
     path: '/login',
     name: 'login',
@@ -45,6 +38,7 @@ const routes = [{
   }
 ]
 const router = new Router({
+  base: '/wsll-admin',
   mode: 'history', //去掉url中的#
   routes: routes
 });
