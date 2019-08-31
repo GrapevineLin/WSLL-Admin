@@ -39,7 +39,7 @@ const routes = [{
 ]
 const router = new Router({
   base: '/wsll-admin',
-  mode: 'history', //去掉url中的#
+  mode: 'hash', //去掉url中的#
   routes: routes
 });
 router.beforeEach((to, from, next) => {
