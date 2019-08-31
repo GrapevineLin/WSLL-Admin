@@ -1,14 +1,36 @@
 <template>
-  <div style="margin-left:40px">
+  <div class="body">
+    <vue-particles
+      color="#030513"
+      :particleOpacity="0.7"
+      :particlesNumber="100"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#203c77"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="100"
+      :moveSpeed="2"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      class="lizi"
+    ></vue-particles>
+    <div class="main-title">
+      <h3>WSLL</h3>
+    </div>
     <div class="container">
       <div class="loginBox">
         <div class="username">
-          <el-input placeholder="请输入用户名" v-model="username" />
+          <input class="input" placeholder="用户名" v-model="username" />
         </div>
         <div class="password">
-          <el-input type="password" placeholder="请输入密码" v-model="password" />
+          <input type="password" class="input" placeholder="密码" v-model="password" />
         </div>
         <el-button class="loginButton" @click="login">登录</el-button>
+        <!-- <input class="sub" value="登录" /> -->
       </div>
     </div>
   </div>
@@ -24,27 +46,6 @@ export default {
     };
   },
   methods: {
-    axiosNoPara: function() {
-      this.$http.get(this.GLOBAL.globalURL + "/test2").then(
-        response => {
-          console.log(response.data);
-        },
-        err => {
-          console.log(err);
-        }
-      );
-    },
-    axiosId: function() {
-      this.$http({
-        method: "get",
-        url: this.GLOBAL.globalURL + "/axiosId",
-        params: {
-          id: this.id
-        }
-      }).then(function(response) {
-        alert(response.data);
-      });
-    },
     login: function() {
       var self = this;
       //判断输入框的值
@@ -90,11 +91,41 @@ export default {
 </script>
 
 <style scoped>
-#axiosNoPara {
-  margin: 30px;
+* {
+  margin: 0;
+  padding: 0;
+}
+.lizi {
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.body {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: #409eff;
+  overflow: hidden;
+  text-align: center;
+}
+.main-title {
+  font-size: 7rem;
+  font-family: Teko, sans-serif;
+  text-shadow: 8px 8px #000;
+  text-transform: uppercase;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
 }
 .container {
-  height: 400px;
+  /* height: 400px; */
+  height: 100%;
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +135,7 @@ export default {
   width: 400px;
   height: 300px;
   border-radius: 25px;
-  box-shadow: black 0px 0px 10px;
+  box-shadow: 0 -15px 30px #0F1CEF;
   text-align: center;
   position: relative;
 }
@@ -115,10 +146,22 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   display: inline-block;
+  width:60%;
 }
 .loginInput {
   display: inline-block;
   width: 50%;
+}
+.input {
+  font-size: 14px;
+  height: 26px;
+  line-height: 26px;
+  padding: 8px 5%;
+  width: 90%;
+  text-indent: 2em;
+  border: none;
+  background: #8B92F5;
+  color: white;
 }
 .password {
   display: block;
@@ -127,12 +170,16 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   display: inline-block;
+  width:60%;
 }
 .loginButton {
   display: block;
-  /* top: 100%; */
-  left: 0%;
-  /* -webkit-transform: translate(0%, -50%); */
-  transform: translate(230%, 500%);
+  transform: translate(33%, 450%);
+  width: 60%;
+  height: 42px;
+  border: none;
+  font-size: 16px;
+  background: #1B34F0;
+  color: #f8f8f8;
 }
 </style>
